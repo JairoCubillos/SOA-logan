@@ -1,0 +1,7 @@
+
+
+CREATE COMPUTE MODULE postGetAllCustomerProject_RutaMensaje
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+	END;
+END MODULE;

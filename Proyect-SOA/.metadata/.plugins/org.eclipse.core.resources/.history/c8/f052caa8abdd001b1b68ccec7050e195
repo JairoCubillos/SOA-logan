@@ -1,0 +1,21 @@
+
+
+CREATE COMPUTE MODULE postGetAllCustomerProject_RutaMensaje
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		-- 1 se deben crear Cabeceras MQ
+		CREATE FIELD OutputRoot.Properties;
+		CREATE FIELD OutputRoot.MQMD;
+		CREATE FIELD OutputRoot.MQRFH2;
+		 
+		-- 1.1 Copiar mensaje JSON.
+		SET OutputRoot.JSON = InputRoot.JSON;        
+		
+		-- 3 Obtener datos del replyIdentifier		
+		SET OutputRoot.MQRFH2.user.ReplyIdentifier = InputLocalEnvironment.Destination.HTTP.RequestIdentifier;
+		
+		
+		
+	END;
+END MODULE;

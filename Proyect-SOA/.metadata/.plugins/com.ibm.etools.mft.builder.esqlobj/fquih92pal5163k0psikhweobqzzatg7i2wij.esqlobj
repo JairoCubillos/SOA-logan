@@ -1,0 +1,9 @@
+CREATE COMPUTE MODULE postGetAllCustomerProject_GetRequestIdentifier
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		
+		
+		
+	END;
+END MODULE;

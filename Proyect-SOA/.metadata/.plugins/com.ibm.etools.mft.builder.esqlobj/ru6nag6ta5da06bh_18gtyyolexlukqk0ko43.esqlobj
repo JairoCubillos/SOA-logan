@@ -1,0 +1,28 @@
+/*EATE FUNCTION Main() RETURNS BOOLE*/
+	BEGIN
+		
+		-- 1 se deben crear Cabeceras MQ
+		CREATE FIELD OutputRoot.Properties;
+		CREATE FIELD OutputRoot.MQMD;
+		CREATE FIELD OutputRoot.MQRFH2;
+		 
+		-- 1.1 Copiar mensaje XML.
+		SET OutputRoot.XMLNSC = InputRoot.XMLNSC;
+		
+		-- 3 Obtener datos para respuesta		
+		SET OutputRoot.MQRFH2.user.ReplyIdentifier = InputLocalEnvironment.Destination.SOAP.Reply.ReplyIdentifier;
+		SET OutputRoot.MQRFH2.user.operation       = InputLocalEnvironment.Destination.RouterList.DestinationData.labelName;
+		
+		-- 4 Enrutar con base en la operacion 
+		IF InputLocalEnvironment.Destination.RouterList.DestinationData.labelName = 'GetAllCustomerProject' THEN
+			SET OutputLocalEnvironment.Destination.MQ.DestinationData[1].queueName = 'CLIENTE.GETALLCLIENTE.REQ';
+		ELSE 
+			SET OutputLocalEnvironment.Destination.MQ.DestinationData[1].queueName = 'CUENTA.GETALLBYIDCLIENTE.REQ';
+			-- este SET son variables de ambiente y se utilizan para cambiar el comportamiento de los nodos estas partes de codigo estan en la documentacion de SOAP.
+			-- https://www.ibm.com/docs/es/integration-bus/9.0.0?topic=nodes-mqoutput-node
+		END IF;
+		
+		RETURN TRUE;
+	END;
+
+	

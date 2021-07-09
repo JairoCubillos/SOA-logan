@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/p-xsd/transaccionReq" xmlns:this="http://www.BancoPersonal.com/servicios/cuentas/p-xsd">
+    <xsd:complexType name="TransaccionReqType">
+    	<xsd:sequence>
+    		<xsd:element name="Id_transaccion" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+    		<xsd:element name="Fecha_transaccion" type="xsd:dateTime" maxOccurs="1" minOccurs="1"></xsd:element>
+    		<xsd:element name="Id_Cliente" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

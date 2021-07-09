@@ -1,0 +1,19 @@
+BROKER SCHEMA com.co.BancoPersonal.Fachada
+
+
+CREATE COMPUTE MODULE FachadaBancoReq_Enrutamiento
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		-- 1 se deben crear Cabeceras MQ
+		CREATE FIELD OutputRoot.Properties;
+		CREATE FIELD OutputRoot.MQMD;
+		CREATE FIELD OutputRoot.MQRFH2;
+		 
+		-- 1.1 Copiar mensaje XML.
+		SET OutputRoot.XMLNSC = InputRoot.XMLNSC;
+		RETURN TRUE;
+	END;
+
+	
+END MODULE;

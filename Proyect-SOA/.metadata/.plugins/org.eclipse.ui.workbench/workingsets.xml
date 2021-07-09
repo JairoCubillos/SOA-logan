@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="com.ibm.etools.mft.navigator.BrokerWorkingSet.AppLib" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1625169650813_3" label="[Cuenta_GetAllByIdCliente]" name="[Cuenta_GetAllByIdCliente]">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Cuenta_GetAllByIdCliente" type="4"/>
+</workingSet>
+<workingSet editPageId="com.ibm.etools.mft.navigator.BrokerWorkingSet.AppLib" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1625169712006_4" label="[Cliente_GetAll]" name="[Cliente_GetAll]">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Cliente_GetAll" type="4"/>
+</workingSet>
+<workingSet editPageId="com.ibm.etools.mft.navigator.BrokerWorkingSet.AppLib" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1625169750375_5" label="[FachadaProyectoBancoWS]" name="[FachadaProyectoBancoWS]">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/FachadaProyectoBancoWS" type="4"/>
+</workingSet>
+<workingSet editPageId="com.ibm.etools.mft.navigator.BrokerWorkingSet.AppLib" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1625403018543_8" label="[FachadaProyectoBancoREST]" name="[FachadaProyectoBancoREST]">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/FachadaProyectoBancoREST" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1625060911512_0" label="Window Working Set" name="Aggregate for window 1625060911510"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1625143638567_2" label="Window Working Set" name="Aggregate for window 1625143638567"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1625321975516_5" label="Window Working Set" name="Aggregate for window 1625321975516"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1625330969949_6" label="Window Working Set" name="Aggregate for window 1625330969949"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1625350098583_7" label="Window Working Set" name="Aggregate for window 1625350098583"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1625483756629_9" label="Window Working Set" name="Aggregate for window 1625483756629"/>
+</workingSetManager>

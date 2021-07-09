@@ -1,0 +1,20 @@
+
+
+CREATE COMPUTE MODULE postGetAllCustomerProject_GetRequestIdentifier
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		-- 1.1 Copiar mensaje JSON.
+		SET OutputRoot.Properties   = NULL;
+		SET OutputRoot.MQMD   		= NULL;
+		SET OutputRoot.MQRFH2 		= NULL;
+		
+		SET OutputRoot.JSON.Data = InputRoot.XMLNSC;        
+		DECLARE refMQRFH2 REFERENCE TO InputRoot.MQRFH2.user;
+		
+		-- 3 Obtener datos del replyIdentifier		
+		SET OutputLocalEnvironment.Destination.HTTP.RequestIdentifier = CAST(InputRoot.MQRFH2.user.ReplyIdentifier AS BLOB);
+		
+		RETURN TRUE;
+		END;
+END MODULE;

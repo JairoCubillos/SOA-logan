@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><MessageBroker name="FachadaProyectoCuentasWS">
+  <XSDCollection href="platform:/resource/FachadaProyectoCuentasWS/P-XSD/TransaccionRespType.xsd" prefix="this" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/transaccionResp">
+    <import name="P-XSD/EstadoTranType.xsd" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/estadoTra"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/P-XSD/TransaccionRespType.xsd#//TransaccionRespType;XSDComplexTypeDefinition" name="TransaccionRespType"/>
+  </XSDCollection>
+  <XSDCollection href="platform:/resource/FachadaProyectoCuentasWS/P-XSD/ClienteType.xsd" prefix="this" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/cliente">
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/P-XSD/ClienteType.xsd#//ClienteType;XSDComplexTypeDefinition" name="ClienteType"/>
+  </XSDCollection>
+  <XSDCollection href="platform:/resource/FachadaProyectoCuentasWS/Cuentas_InlineSchema1.xsd" prefix="tns" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/wsdl/cuenta">
+    <import name="P-XSD/TransaccionReqType.xsd" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/p-xsd/transaccionReq"/>
+    <import name="P-XSD/TransaccionRespType.xsd" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/transaccionResp"/>
+    <import name="P-XSD/ClienteType.xsd" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/cliente"/>
+    <import name="P-XSD/CuentaType.xsd" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/cuenta"/>
+    <element href="platform:/resource/FachadaProyectoCuentasWS/Cuentas_InlineSchema1.xsd#//GetAllCustomerProjectReq;XSDElementDeclaration" name="GetAllCustomerProjectReq" type="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.BancoPersonal.com/servicios/cuentas/wsdl/cuenta}GetAllCustomerProjectReqType"/>
+    <element href="platform:/resource/FachadaProyectoCuentasWS/Cuentas_InlineSchema1.xsd#//GetAllCustomerProjectResp;XSDElementDeclaration=1" name="GetAllCustomerProjectResp" type="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.BancoPersonal.com/servicios/cuentas/wsdl/cuenta}GetAllCustomerProjectRespType"/>
+    <element href="platform:/resource/FachadaProyectoCuentasWS/Cuentas_InlineSchema1.xsd#//GetAccountsByIdCustomerProjectReq;XSDElementDeclaration=2" name="GetAccountsByIdCustomerProjectReq" type="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.BancoPersonal.com/servicios/cuentas/wsdl/cuenta}GetAccountsByIdCustomerProjectReqType"/>
+    <element href="platform:/resource/FachadaProyectoCuentasWS/Cuentas_InlineSchema1.xsd#//GetAccountsByIdCustomerProjectResp;XSDElementDeclaration=3" name="GetAccountsByIdCustomerProjectResp" type="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.BancoPersonal.com/servicios/cuentas/wsdl/cuenta}GetAccountsByIdCustomerProjectRespType"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/Cuentas_InlineSchema1.xsd#//GetAllCustomerProjectReqType;XSDComplexTypeDefinition" name="GetAllCustomerProjectReqType"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/Cuentas_InlineSchema1.xsd#//GetAllCustomerProjectRespType;XSDComplexTypeDefinition=1" name="GetAllCustomerProjectRespType"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/Cuentas_InlineSchema1.xsd#//Lista_ClienteType;XSDComplexTypeDefinition=2" name="Lista_ClienteType"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/Cuentas_InlineSchema1.xsd#//GetAccountsByIdCustomerProjectReqType;XSDComplexTypeDefinition=3" name="GetAccountsByIdCustomerProjectReqType"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/Cuentas_InlineSchema1.xsd#//GetAccountsByIdCustomerProjectRespType;XSDComplexTypeDefinition=4" name="GetAccountsByIdCustomerProjectRespType"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/Cuentas_InlineSchema1.xsd#//ClienteSmallType1;XSDComplexTypeDefinition=5" name="ClienteSmallType1"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/Cuentas_InlineSchema1.xsd#//Lista_cuentaType;XSDComplexTypeDefinition=6" name="Lista_cuentaType"/>
+  </XSDCollection>
+  <XSDCollection href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd" prefix="tns" targetNamespace="http://schemas.xmlsoap.org/soap/envelope/">
+    <import name="IBMdefined/org/w3/www/xml/_1998/namespace/xml.xsd" targetNamespace="http://www.w3.org/XML/1998/namespace"/>
+    <element href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd#//Envelope;XSDElementDeclaration" name="Envelope" type="mlib://FachadaProyectoCuentasWS#/-/complexType{http://schemas.xmlsoap.org/soap/envelope/}Envelope"/>
+    <element href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd#//Header;XSDElementDeclaration=1" name="Header" type="mlib://FachadaProyectoCuentasWS#/-/complexType{http://schemas.xmlsoap.org/soap/envelope/}Header"/>
+    <element href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd#//Body;XSDElementDeclaration=2" name="Body" type="mlib://FachadaProyectoCuentasWS#/-/complexType{http://schemas.xmlsoap.org/soap/envelope/}Body"/>
+    <element href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd#//Fault;XSDElementDeclaration=3" name="Fault" type="mlib://FachadaProyectoCuentasWS#/-/complexType{http://schemas.xmlsoap.org/soap/envelope/}Fault"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd#//Envelope;XSDComplexTypeDefinition" name="Envelope"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd#//Header;XSDComplexTypeDefinition=1" name="Header"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd#//Body;XSDComplexTypeDefinition=2" name="Body"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd#//Fault;XSDComplexTypeDefinition=3" name="Fault"/>
+    <complexType href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd#//FaultString;XSDComplexTypeDefinition=4" name="FaultString"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd#//detail;XSDComplexTypeDefinition=5" name="detail"/>
+    <simpleType href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd#//encodingStyle;XSDSimpleTypeDefinition" name="encodingStyle" variety="list"/>
+    <attribute href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd#//mustUnderstand;XSDAttributeDeclaration" name="mustUnderstand"/>
+    <attribute href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd#//actor;XSDAttributeDeclaration=1" name="actor"/>
+    <attribute href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd#//encodingStyle;XSDAttributeDeclaration=2" name="encodingStyle"/>
+    <attributeGroup href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/xmlsoap/schemas/soap/envelope/soapenv11.xsd#//encodingStyle;XSDAttributeGroupDefinition" name="encodingStyle"/>
+  </XSDCollection>
+  <XSDCollection href="platform:/resource/FachadaProyectoCuentasWS/P-XSD/EstadoTranType.xsd" prefix="this" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/estadoTra">
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/P-XSD/EstadoTranType.xsd#//EstadoTranType;XSDComplexTypeDefinition" name="EstadoTranType"/>
+  </XSDCollection>
+  <XSDCollection href="platform:/resource/FachadaProyectoCuentasWS/P-XSD/CuentaType.xsd" prefix="this" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/cuenta">
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/P-XSD/CuentaType.xsd#//CuentaType;XSDComplexTypeDefinition" name="CuentaType"/>
+  </XSDCollection>
+  <XSDCollection href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/soap.xsd" prefix="" targetNamespace="">
+    <element href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/soap.xsd#//SOAP_Domain_Msg;XSDElementDeclaration" name="SOAP_Domain_Msg" type="mlib://FachadaProyectoCuentasWS#/-/complexType{}SOAP_Msg_type"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/soap.xsd#//MIME_Headers_type;XSDComplexTypeDefinition" name="MIME_Headers_type"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/soap.xsd#//Attachment_type;XSDComplexTypeDefinition=1" name="Attachment_type"/>
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/soap.xsd#//SOAP_Msg_type;XSDComplexTypeDefinition=2" name="SOAP_Msg_type"/>
+    <group href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/soap.xsd#//MIME_header_fields;XSDModelGroupDefinition" name="MIME_header_fields"/>
+  </XSDCollection>
+  <XSDCollection href="platform:/resource/FachadaProyectoCuentasWS/Cuentas.xsd" prefix="tns" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/wsdl/cuenta">
+    <include name="/FachadaProyectoCuentasWS/Cuentas_InlineSchema1.xsd" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/wsdl/cuenta"/>
+  </XSDCollection>
+  <XSDCollection href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/w3/www/xml/_1998/namespace/xml.xsd" prefix="xml" targetNamespace="http://www.w3.org/XML/1998/namespace">
+    <attribute href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/w3/www/xml/_1998/namespace/xml.xsd#//lang;XSDAttributeDeclaration" name="lang"/>
+    <attribute href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/w3/www/xml/_1998/namespace/xml.xsd#//space;XSDAttributeDeclaration=1" name="space"/>
+    <attribute href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/w3/www/xml/_1998/namespace/xml.xsd#//base;XSDAttributeDeclaration=2" name="base"/>
+    <attributeGroup href="platform:/resource/FachadaProyectoCuentasWS/IBMdefined/org/w3/www/xml/_1998/namespace/xml.xsd#//specialAttrs;XSDAttributeGroupDefinition" name="specialAttrs"/>
+  </XSDCollection>
+  <XSDCollection href="platform:/resource/FachadaProyectoCuentasWS/P-XSD/TransaccionReqType.xsd" prefix="" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/p-xsd/transaccionReq">
+    <complexType baseType="mlib://FachadaProyectoCuentasWS#/-/complexType{http://www.w3.org/2001/XMLSchema}anyType" href="platform:/resource/FachadaProyectoCuentasWS/P-XSD/TransaccionReqType.xsd#//TransaccionReqType;XSDComplexTypeDefinition" name="TransaccionReqType"/>
+  </XSDCollection>
+</MessageBroker>

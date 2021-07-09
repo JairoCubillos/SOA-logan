@@ -1,0 +1,46 @@
+BROKER SCHEMA co.com.cuenta.servicios
+
+
+CREATE COMPUTE MODULE GetAllByIdCliente_EjecutarOperacion
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+	 	-- CALL CopyEntireMessage();
+	 	
+	 	-- Copiar las cabeceras del mensaje.
+		SET OutputRoot.MQMD   = InputRoot.MQMD; --InputRoot y OutputRoot son los flujos de entrada y de salida
+		SET OutputRoot.MQRFH2 = InputRoot.MQRFH2; -- SET es una palabra reservada del sistema y significa una asignacion de variables
+	
+		-- Declaracion de Referencias.
+	DECLARE refInp REFERENCE TO InputRoot;
+	MOVE refInp LASTCHILD;--es como un apuntador que situa el inputRoot y lo mueve al ultimo hijo para acceder a los datos que estan de ahi para abajo
+	MOVE refInp LASTCHILD;
+		-- Declaracion de variables 
+	DECLARE sql CHARACTER '';
+	DECLARE i INTEGER 1;
+	SET sql = 'cp.number_account, p.Type_product, p.Name, cp.balance from personal_bank.customer c, personal_bank.customer_product cp, personal_bank.products p
+			where c.id_customer = cp.id_customer 
+			and p.Id_product = cp.id_product
+			and c.Number_id = ?
+			and c.Id_type = ?';-- se escribe en base de datos dbeaver y se copia aca.
+		
+	-- Ejecuto la sentencia en base de datos para obtener el listado de clientes.
+	SET Environment.variables.customer_product[] = PASSTHRU(sql,refInp.*:customer.*:id,refInp.*:customer.*:id_type);
+	
+	CREATE FIELD OutputRoot.XMLNSC.GetAccountsByIdCustomerProjectResp;
+	DECLARE  refOut  REFERENCE TO OutputRoot.XMLNSC.GetAccountsByIdCustomerProjectResp;
+	
+	SET refOut.TransaccionResp.Id_transaccion        			= refInp.GetAllCustomerProjectReq.Id_transaccion;
+	SET refOut.TransaccionResp.Fecha_transaccion_resp 			= CURRENT_TIMESTAMP;
+	SET refOut.TransaccionResp.Estado_transaccion.Codigo_transa = '0';
+	SET refOut.TransaccionResp.Estado_transaccion.Descripcion   = 'Transaccion exitosa';
+	
+	-- Copiar mensajes de respuesta.
+	FOR refCustomer AS Environment.variables.customer_product[] DO
+		SET refOut.Lista_cuenta.Cuenta[i] = refInp.Cuenta; -- se devuleve en debug entre los dos sets ??????
+	    SET i = i + 1;
+	END FOR;
+		RETURN TRUE;
+	END;
+END MODULE;
+	

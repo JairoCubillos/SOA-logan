@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/transaccionResp"
+	xmlns:this="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/transaccionResp" xmlns:pref="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/estadoTra">
+	<xsd:import schemaLocation="EstadoTranType.xsd" namespace="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/estadoTra"></xsd:import>
+	<xsd:complexType name="TransaccionRespType">
+		<xsd:sequence>
+			<xsd:element name="Id_transaccion" type="xsd:string"
+				maxOccurs="1" minOccurs="1">
+			</xsd:element>
+			<xsd:element name="Fecha_transaccion_resp" type="xsd:dateTime"
+				maxOccurs="1" minOccurs="1">
+			</xsd:element>
+			<xsd:element name="Estado_transaccion" type="pref:EstadoTranType"
+				maxOccurs="1" minOccurs="1">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

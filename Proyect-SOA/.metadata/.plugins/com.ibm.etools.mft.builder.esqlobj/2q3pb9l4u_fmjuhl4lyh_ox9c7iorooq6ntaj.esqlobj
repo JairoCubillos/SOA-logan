@@ -1,0 +1,65 @@
+CREATE COMPUTE MODULE FachadaBancoResp_Copiar_Mensaje
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+	
+		--Declaracion de variables.
+	DECLARE i INTEGER 1;
+		
+	--Declaracion de referenias.
+	DECLARE refInp REFERENCE TO InputRoot.XMLNSC;
+	MOVE refInp LASTCHILD;
+	
+	DECLARE refMQRFH2 REFERENCE TO InputRoot.MQRFH2.user;
+	
+	--Validacion de operacion.
+	CASE refMQRFH2.operation
+	WHEN 'GetAllCustomer2' THEN	
+		
+	-- Crear mensaje de salida.
+	CREATE FIELD OutputRoot.XMLNSC.ns:GetAllCustomer2Rs;
+	DECLARE refOut REFERENCE TO OutputRoot.XMLNSC.ns:GetAllCustomer2Rs;
+	
+	-- Copiar cabecera de transaccion.
+		SET refOut.transactionRs2 = refInp.transactionRs2;
+		
+	-- Generar mensaje de clientes.
+	   FOR refCustomer AS refInp.customers.customer[] DO 
+		
+		SET refOut.listCustomer2.customer2[i].type_id    = refCustomer.Id_type;-- este bloque lo trae de la base de datos creada en dbeaver
+		SET refOut.listCustomer2.customer2[i].id  	     = refCustomer.Number_id;
+		SET refOut.listCustomer2.customer2[i].names      = refCustomer.Names;
+		SET refOut.listCustomer2.customer2[i].last_names = refCustomer.Last_names;
+		SET refOut.listCustomer2.customer2[i].address    = '';
+		
+		SET i = i + 1;
+		END FOR; 
+	-- Transformar el mensaje.
+	WHEN 'GetAccountsByIdCustomer2' THEN
+		
+		-- Crear mensaje de salida.
+	CREATE FIELD OutputRoot.XMLNSC.ns:GetAccountsByIdCustomer2Rs;
+	DECLARE refOut REFERENCE TO OutputRoot.XMLNSC.ns:GetAccountsByIdCustomer2Rs;
+	
+	-- Copiar cabecera de transaccion.
+		SET refOut.transactionRs2 = refInp.transactionRs2;
+		
+	-- Generar mensaje de clientes.
+	   FOR refAccount AS refInp.lstAccount.account[] DO 
+		
+		SET refOut.listAccount.account[i].type          = refAccount.Type_product;
+		SET refOut.listAccount.account[i].number        = refAccount.number_account;
+		SET refOut.listAccount.account[i].balance       = CAST (refAccount.balance AS DECIMAL);--se usa para cambiar el resultado exponencial a decimal
+		SET refOut.listAccount.account[i].personal_name = refAccount.Name;
+				
+		SET i = i + 1;
+		END FOR; 
+	END CASE;
+			
+			SET OutputLocalEnvironment.Destination.SOAP.Reply.ReplyIdentifier = CAST(InputRoot.MQRFH2.user.ReplyIdentifier AS BLOB);
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;

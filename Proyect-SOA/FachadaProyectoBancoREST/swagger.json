@@ -1,0 +1,193 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "FachadaProyectoBancoREST",
+    "version" : "1.0.0",
+    "description" : "FachadaProyectoBancoREST"
+  },
+  "paths" : {
+    "/GetAllCustomerProject" : {
+      "post" : {
+        "operationId" : "postGetAllCustomerProject",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/GetAccountsByIdCustomerProjectReq"
+            }
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Insert a GetAllCustomerProject",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/GetAllCustomerProjectReq"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      }
+    },
+    "/GetAllCustomerProject/GetAccountsByIdCustomerProject" : {
+      "post" : {
+        "operationId" : "postGetAccountsByIdCustomerProject",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/GetAllCustomerProjectResp"
+            }
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Insert a GetAccountsByIdCustomerProject",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/GetAllCustomerProjectReq"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      }
+    }
+  },
+  "basePath" : "/fachadaproyectobancorest/v1",
+  "definitions" : {
+    "GetAllCustomerProjectReq" : {
+      "type" : "object",
+      "properties" : {
+        "TransaccionReq" : {
+          "type" : "object",
+          "properties" : {
+            "Id_transaccion" : {
+              "type" : "string"
+            },
+            "Fecha_transaccion" : {
+              "type" : "string"
+            },
+            "Id_Cliente" : {
+              "type" : "string"
+            }
+          },
+          "required" : [ "Id_transaccion", "Fecha_transaccion", "Id_Cliente" ]
+        }
+      }
+    },
+    "GetAllCustomerProjectResp" : {
+      "type" : "object",
+      "properties" : {
+        "TransaccionResp" : {
+          "type" : "object",
+          "properties" : {
+            "Id_transaccion" : {
+              "type" : "string"
+            },
+            "Fecha_transaccion_resp" : {
+              "type" : "string"
+            },
+            "Estado_transaccion" : {
+              "type" : "object",
+              "properties" : {
+                "Codigo_transa" : {
+                  "type" : "string"
+                },
+                "Descripcion" : {
+                  "type" : "string"
+                }
+              }
+            }
+          },
+          "required" : [ "Id_transaccion", "Fecha_transaccion_resp", "Estado_transaccion" ]
+        }
+      }
+    },
+    "GetAccountsByIdCustomerProjectReq" : {
+      "type" : "object",
+      "properties" : {
+        "TransaccionReq" : {
+          "type" : "object",
+          "properties" : {
+            "Id_transaccion" : {
+              "type" : "string"
+            },
+            "Fecha_transaccion" : {
+              "type" : "string"
+            },
+            "Id_Cliente" : {
+              "type" : "string"
+            }
+          }
+        },
+        "Cliente" : {
+          "type" : "object",
+          "properties" : {
+            "Tipo_ident" : {
+              "type" : "string"
+            },
+            "Identificacion" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "GetAccountsByIdCustomerProjectResp" : {
+      "type" : "object",
+      "properties" : {
+        "TransaccionRs" : {
+          "type" : "object",
+          "properties" : {
+            "Id_transaccion" : {
+              "type" : "string"
+            },
+            "Fecha_transaccion_resp" : {
+              "type" : "string"
+            },
+            "Estado_transaccion" : {
+              "type" : "object",
+              "properties" : {
+                "Codigo_transa" : {
+                  "type" : "string"
+                },
+                "Descripcion" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        },
+        "Lista_cuenta" : {
+          "type" : "object",
+          "properties" : {
+            "Cuenta" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "Tipo_cuenta" : {
+                    "type" : "string"
+                  },
+                  "Nro_cuenta" : {
+                    "type" : "string"
+                  },
+                  "Estado_cuenta" : {
+                    "type" : "string"
+                  },
+                  "Nombre_personal" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

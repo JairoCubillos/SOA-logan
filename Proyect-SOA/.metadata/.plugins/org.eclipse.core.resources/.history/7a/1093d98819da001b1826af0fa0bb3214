@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Cuentas" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/wsdl/cuenta" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.BancoPersonal.com/servicios/cuentas/wsdl/cuenta" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema
+    	targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/wsdl/cuenta"
+    	xmlns:pref="http://www.BancoPersonal.com/servicios/cuentas/p-xsd/transaccionReq"
+    	xmlns:this="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/transaccionResp"
+    	xmlns:pref1="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/cliente" xmlns:pref2="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/cuenta">
+
+
+    	<xsd:import schemaLocation="../P-XSD/TransaccionReqType.xsd"
+    		namespace="http://www.BancoPersonal.com/servicios/cuentas/p-xsd/transaccionReq">
+    	</xsd:import>
+    	<xsd:import schemaLocation="../P-XSD/TransaccionRespType.xsd"
+    		namespace="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/transaccionResp">
+    	</xsd:import>
+    	<xsd:import schemaLocation="../P-XSD/ClienteType.xsd"
+    		namespace="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/cliente">
+    	</xsd:import>
+    	<xsd:import schemaLocation="../P-XSD/CuentaType.xsd" namespace="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/cuenta"></xsd:import>
+    	<xsd:element name="GetAllCustomerProjectReq"
+    		type="tns:GetAllCustomerProjectReqType">
+    	</xsd:element>
+    	<xsd:element name="GetAllCustomerProjectResp"
+    		type="tns:GetAllCustomerProjectRespType">
+    	</xsd:element>
+
+    	<xsd:complexType name="GetAllCustomerProjectReqType">
+    		<xsd:sequence>
+    			<xsd:element name="TransaccionReq"
+    				type="pref:TransaccionReqType" maxOccurs="1" minOccurs="1">
+    			</xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+
+    	<xsd:complexType name="GetAllCustomerProjectRespType">
+    		<xsd:sequence>
+    			<xsd:element name="TransaccionResp"
+    				type="this:TransaccionRespType" maxOccurs="1" minOccurs="1">
+    			</xsd:element>
+    			<xsd:element name="Lista_Cliente"
+    				type="tns:Lista_ClienteType" maxOccurs="1" minOccurs="0">
+    			</xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+
+    	<xsd:complexType name="Lista_ClienteType">
+    		<xsd:sequence>
+    			<xsd:element name="Cliente" type="pref1:ClienteType"
+    				maxOccurs="1" minOccurs="0">
+    			</xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+
+
+    	<xsd:element name="GetAccountsByIdCustomerProjectReq"
+    		type="tns:GetAccountsByIdCustomerProjectReqType">
+    	</xsd:element>
+    	<xsd:element name="GetAccountsByIdCustomerProjectResp"
+    		type="tns:GetAccountsByIdCustomerProjectRespType">
+    	</xsd:element>
+
+    	<xsd:complexType name="GetAccountsByIdCustomerProjectReqType">
+    		<xsd:sequence>
+    			<xsd:element name="TransaccionReq"
+    				type="pref:TransaccionReqType" maxOccurs="1" minOccurs="1">
+    			</xsd:element>
+    			<xsd:element name="Cliente" type="tns:ClienteSmallType1"
+    				maxOccurs="1" minOccurs="1">
+    			</xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+
+    	<xsd:complexType
+    		name="GetAccountsByIdCustomerProjectRespType">
+    		<xsd:sequence>
+    			<xsd:element name="TransaccionRs"
+    				type="this:TransaccionRespType" maxOccurs="1" minOccurs="1">
+    			</xsd:element>
+    			<xsd:element name="Lista_cuenta" type="tns:Lista_cuentaType" maxOccurs="1" minOccurs="0"></xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+
+    	<xsd:complexType name="ClienteSmallType1">
+    		<xsd:sequence>
+    			<xsd:element name="Tipo_ident" type="xsd:string"
+    				maxOccurs="1" minOccurs="1">
+    			</xsd:element>
+    			<xsd:element name="Identificacion" type="xsd:string"
+    				maxOccurs="1" minOccurs="1">
+    			</xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    
+    	<xsd:complexType name="Lista_cuentaType">
+    		<xsd:sequence>
+    			<xsd:element name="Cuenta" type="pref2:CuentaType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAllCustomerProjectRequest">
+    <wsdl:part element="tns:GetAllCustomerProjectReq" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetAllCustomerProjectResponse">
+    <wsdl:part element="tns:GetAllCustomerProjectResp" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetAccountsByIdCustomerProjectRequest">
+  	<wsdl:part name="parameters" element="tns:GetAccountsByIdCustomerProjectReq"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetAccountsByIdCustomerProjectResponse">
+  	<wsdl:part name="parameters" element="tns:GetAccountsByIdCustomerProjectResp"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Cuentas">
+    <wsdl:operation name="GetAllCustomerProject">
+      <wsdl:input message="tns:GetAllCustomerProjectRequest"/>
+      <wsdl:output message="tns:GetAllCustomerProjectResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByIdCustomerProject">
+    	<wsdl:input message="tns:GetAccountsByIdCustomerProjectRequest"></wsdl:input>
+    	<wsdl:output message="tns:GetAccountsByIdCustomerProjectResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CuentasSOAP" type="tns:Cuentas">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetAllCustomerProject">
+      <soap:operation soapAction="http://www.BancoPersonal.com/servicios/cuentas/wsdl/cuenta/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Cuentas">
+    <wsdl:port binding="tns:CuentasSOAP" name="CuentasSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

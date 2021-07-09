@@ -1,0 +1,13 @@
+/*EATE FUNCTION Main() RETURNS BOOLE*/
+	BEGIN
+		
+		-- 1.1 Copiar mensaje JSON.
+		SET OutputRoot.JSON.Data = InputRoot.XMLNSC;        
+		
+		DECLARE refMQRFH2 REFERENCE TO InputRoot.MQRFH2.user;
+		
+		-- 3 Obtener datos del replyIdentifier		
+		SET OutputLocalEnvironment.Destination.HTTP.RequestIdentifier = CAST(InputRoot.MQRFH2.user.ReplyIdentifier AS BLOB);
+		
+		RETURN TRUE;
+		END;

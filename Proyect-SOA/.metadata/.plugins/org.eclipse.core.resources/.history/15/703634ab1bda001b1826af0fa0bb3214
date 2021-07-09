@@ -1,0 +1,11 @@
+
+
+Importing file: C:\Users\Cubillos\IBM\IIBT10\workspace\Nueva carpeta\P-WSDL\P-Cuentas\Cuentas.wsdl
+
+The WSDL import will proceed with bindings CuentasSOAP.
+Creating wsdl schema document for file:///C:/Users/Cubillos/IBM/IIBT10/workspace/Nueva carpeta/P-WSDL/P-Cuentas/Cuentas.wsdl.
+Parsing wsdl binding {http://www.BancoPersonal.com/servicios/cuentas/wsdl/cuenta}CuentasSOAP.
+Parsing wsdl binding input GetAllCustomerProject.
+Parsing wsdl binding output GetAllCustomerProject.
+Parsing wsdl binding input GetAccountsByIdCustomerProject.
+Parsing wsdl binding output GetAccountsByIdCustomerProject.

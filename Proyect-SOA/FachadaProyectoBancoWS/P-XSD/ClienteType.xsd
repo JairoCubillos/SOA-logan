@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/cliente" xmlns:this="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/cliente">
+
+    <xsd:complexType name="ClienteType">
+    	<xsd:sequence>
+    		<xsd:element maxOccurs="1" minOccurs="1" name="Tipo_iden" type="xsd:string"/>
+    		<xsd:element maxOccurs="1" minOccurs="1" name="Identificacion" type="xsd:string"/>
+    		<xsd:element maxOccurs="1" minOccurs="1" name="Nombres" type="xsd:string"/>
+    		<xsd:element maxOccurs="1" minOccurs="1" name="Apellidos" type="xsd:string"/>
+    		<xsd:element maxOccurs="1" minOccurs="1" name="Direccion" type="xsd:string"/>
+    		<xsd:element maxOccurs="1" minOccurs="1" name="Telefono" type="xsd:string"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

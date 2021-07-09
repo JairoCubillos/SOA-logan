@@ -1,0 +1,36 @@
+/*EATE FUNCTION Main() RETURNS BOOLE*/
+	BEGIN
+		-- CALL CopyMessageHeaders();
+	 	-- CALL CopyEntireMessage();
+	 	
+	 	-- Copiar las cabeceras del mensaje.
+		SET OutputRoot.MQMD   = InputRoot.MQMD; --InputRoot y OutputRoot son los flujos de entrada y de salida
+		SET OutputRoot.MQRFH2 = InputRoot.MQRFH2; -- SET es una palabra reservada del sistema y significa una asignacion de variables
+	
+		-- Declaracion de Referencias.
+	DECLARE refInp REFERENCE TO InputRoot;
+	MOVE refInp LASTCHILD;--es como un apuntador que situa el inputRoot y lo mueve al ultimo hijo para acceder a los datos que estan de ahi para abajo
+	MOVE refInp LASTCHILD;
+		-- Declaracion de variables 
+	DECLARE sql CHARACTER '';
+	DECLARE i INTEGER 1;
+	SET sql = 'select * from personal_bank.customer';-- se escribe en base de datos dbeaver y se copia aca.
+		
+	-- Ejecuto la sentencia en base de datos para obtener el listado de clientes.
+	SET Environment.variables.customer[] = PASSTHRU(sql);
+	
+	CREATE FIELD OutputRoot.XMLNSC.GetAllCustomerProjectResp;
+	DECLARE  refOut  REFERENCE TO OutputRoot.XMLNSC.GetAllCustomerProjectResp;
+	
+	SET refOut.TransaccionResp.Id_transaccion        			= refInp.GetAllCustomerProjectReq.Id_transaccion;
+	SET refOut.TransaccionResp.Fecha_transaccion_resp 			= CURRENT_TIMESTAMP;
+	SET refOut.TransaccionResp.Estado_transaccion.Codigo_transa = '0';
+	SET refOut.TransaccionResp.Estado_transaccion.Descripcion   = 'Transaccion exitosa';
+	
+	-- Copiar mensajes de respuesta.
+	FOR refCustomer AS Environment.variables.customer[] DO
+		SET refOut.customers.customer[i] = refCustomer; -- se devueve en debug entre los dos sets?
+	    SET i = i + 1;
+	END FOR;
+		RETURN TRUE;
+	END;

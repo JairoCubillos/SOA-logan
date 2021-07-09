@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/cuenta" xmlns:this="http://www.BancoPersonal.com/servicios/cuentas/xsd-p/cuenta">
+    <xsd:complexType name="CuentaType">
+    	<xsd:sequence>
+    		<xsd:element maxOccurs="1" minOccurs="1" name="Tipo_cuenta" type="xsd:string"/>
+    		<xsd:element maxOccurs="1" minOccurs="1" name="Nro_cuenta" type="xsd:string"/>
+    		<xsd:element maxOccurs="1" minOccurs="1" name="Estado_cuenta" type="xsd:double"/>
+    		<xsd:element maxOccurs="1" minOccurs="0" name="Nombre_personal" type="xsd:string"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
